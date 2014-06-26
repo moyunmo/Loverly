@@ -1,0 +1,64 @@
+PODS:
+  - AFNetworking (2.3.1):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+    - AFNetworking/UIKit
+  - AFNetworking-RACExtensions (0.1.4):
+    - AFNetworking (~> 2.0)
+    - ReactiveCocoa (~> 2.0)
+  - AFNetworking/NSURLConnection (2.3.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.3.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.3.1)
+  - AFNetworking/Security (2.3.1)
+  - AFNetworking/Serialization (2.3.1)
+  - AFNetworking/UIKit (2.3.1):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - CHTCollectionViewWaterfallLayout (0.7)
+  - Mantle (1.5):
+    - Mantle/extobjc
+  - Mantle/extobjc (1.5)
+  - ReactiveCocoa (2.3.1):
+    - ReactiveCocoa/UI
+  - ReactiveCocoa/Core (2.3.1):
+    - ReactiveCocoa/no-arc
+  - ReactiveCocoa/no-arc (2.3.1)
+  - ReactiveCocoa/UI (2.3.1):
+    - ReactiveCocoa/Core
+  - ReactiveViewModel (0.2):
+    - ReactiveCocoa (~> 2.1)
+  - SDWebImage (3.6):
+    - SDWebImage/Core
+  - SDWebImage/Core (3.6)
+  - SVProgressHUD (1.0)
+
+DEPENDENCIES:
+  - AFNetworking (~> 2.2)
+  - AFNetworking-RACExtensions (~> 0.1)
+  - CHTCollectionViewWaterfallLayout (~> 0.4)
+  - Mantle (~> 1.5)
+  - ReactiveCocoa (~> 2.3)
+  - ReactiveViewModel (~> 0.1)
+  - SDWebImage (~> 3.6)
+  - SVProgressHUD (~> 1.0)
+
+SPEC CHECKSUMS:
+  AFNetworking: 6d7b76aa5d04c8c37daad3eef4b7e3f2a7620da3
+  AFNetworking-RACExtensions: 1d7fbc98d11e9e02ae26faed0c777c6e840464b5
+  CHTCollectionViewWaterfallLayout: 184d3b6d5456b48e93ac97e93e606bd8b68aedcc
+  Mantle: c67a7e45e14196ed42b2a7cbb98ff6a9920e6b92
+  ReactiveCocoa: dca75777b9d18990c8714a3a6f2149f29b4d1462
+  ReactiveViewModel: 78387196df2e7535bb2776c41df15dbb17300f8a
+  SDWebImage: c6989652c1cdf27cbdf3f56957e2030f825af5bc
+  SVProgressHUD: 5034c6e22b8c2ca3e09402e48d41ed0340aa1c50
+
+COCOAPODS: 0.33.1

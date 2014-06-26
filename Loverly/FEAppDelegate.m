@@ -7,14 +7,17 @@
 //
 
 #import "FEAppDelegate.h"
+#import "LoverlyViewController.h"
 
 @implementation FEAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[LoverlyViewController alloc] init]];
     self.window.backgroundColor = [UIColor whiteColor];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor blackColor]}];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [self.window makeKeyAndVisible];
     return YES;
 }
