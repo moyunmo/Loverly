@@ -39,7 +39,9 @@ static NSString *cellIdentifier = @"Identifier";
 {
     [super viewDidLoad];
     self.title = @"Loverly";
+    @weakify(self);
     [RACObserve(self, viewModel.models) subscribeNext:^(id x) {
+        @strongify(self);
         [SVProgressHUD dismiss];
         [self.collectionView reloadData];
     }];
