@@ -25,7 +25,7 @@
 
 - (RACSignal *)requestWithParameters:(NSMutableDictionary *)parameters resultClass:(Class)resultClass
 {
-    return [[[self rac_GET:kwaterFlowAPI parameters:parameters] catch:^RACSignal *(NSError *error) {
+    return [[[[self rac_GET:kwaterFlowAPI parameters:parameters] logAll] catch:^RACSignal *(NSError *error) {
         NSLog(@"%@",error);
         return nil;
     }] map:^id(id value) {

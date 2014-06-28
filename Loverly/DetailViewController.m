@@ -41,8 +41,12 @@
     @weakify(self);
     btn.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
         @strongify(self);
-        [self dismissViewControllerAnimated:YES completion:nil];
-        return [RACSignal empty];
+        return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+            [self dismissViewControllerAnimated:YES completion:^{
+                [subscriber sendCompleted];
+            }];
+            return nil;
+        }];
     }];
     [self.view addSubview:btn];
 }
