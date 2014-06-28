@@ -10,7 +10,17 @@
 #import <ReactiveCocoa.h>
 #import "LoverlyAPIManage.h"
 #import "LoverlyModel.h"
-#import "LoverlyCellViewModel.h"
+#import <SVProgressHud.h>
+
+@interface LoverlyViewModel ()
+{
+    NSString *cachePath;
+}
+@property (nonatomic) BOOL cachaValid;
+@property (nonatomic,strong) LoverlyModel *cacheData;
+
+@end
+
 @implementation LoverlyViewModel
 
 - (id)init
@@ -21,9 +31,45 @@
     return self;
 }
 
+- (BOOL)cachaValid
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    cachePath = [paths[0] stringByAppendingPathComponent:@"Moyun"];
+    self.cacheData = [NSKeyedUnarchiver unarchiveObjectWithFile:cachePath];
+    if (self.cacheData) {
+        return YES;
+    }else{
+        return NO;
+    }
+    return NO;
+}
+
+- (RACSignal *)loadData
+{
+    return [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+        if (self.cachaValid) {
+            [subscriber sendNext:self.cacheData];
+            [subscriber sendCompleted];
+        }else{
+            [SVProgressHUD showWithStatus:@"Loading..."];
+            [subscriber sendError:nil];
+        }
+        return nil;
+    }] subscribeOn:[RACScheduler scheduler]];
+}
+
+
+
 - (RACSignal *)obtainData
 {
-    return [[LoverlyAPIManage sharedInstance] requestWithParameters:nil resultClass:[LoverlyModel class]];
+    return [[self loadData] catch:^RACSignal *(NSError *error) {
+        NSLog(@"%@",error);
+        return [[[LoverlyAPIManage sharedInstance] requestWithParameters:nil resultClass:[LoverlyModel class]]
+                doNext:^(id x) {
+                    [SVProgressHUD dismiss];
+                    [NSKeyedArchiver archiveRootObject:x toFile:cachePath];
+        }];
+    }];
 }
 
 @end

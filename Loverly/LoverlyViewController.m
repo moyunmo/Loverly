@@ -12,13 +12,13 @@
 #import <CHTCollectionViewWaterfallLayout.h>
 #import "LoverlyModel.h"
 #import "LoverlyCell.h"
-#import "LoverlyCellViewModel.h"
 #import <RACEXTScope.h>
-#import <SVProgressHud.h>
+#import "DetailViewController.h"
+#import "PushAnimation.h"
 
 static NSString *cellIdentifier = @"Identifier";
 
-@interface LoverlyViewController ()<CHTCollectionViewDelegateWaterfallLayout,UICollectionViewDataSource,UICollectionViewDelegate>
+@interface LoverlyViewController ()<CHTCollectionViewDelegateWaterfallLayout,UICollectionViewDataSource,UICollectionViewDelegate,UIViewControllerTransitioningDelegate>
 
 @property(nonatomic,strong)UICollectionView *collectionView;
 
@@ -42,11 +42,19 @@ static NSString *cellIdentifier = @"Identifier";
     @weakify(self);
     [RACObserve(self, viewModel.models) subscribeNext:^(id x) {
         @strongify(self);
-        [SVProgressHUD dismiss];
         [self.collectionView reloadData];
     }];
     [self.view addSubview:self.collectionView];
-    [SVProgressHUD showWithStatus:@"Loading..."];
+    [[self rac_signalForSelector:@selector(collectionView:didSelectItemAtIndexPath:) fromProtocol:@protocol(UICollectionViewDelegate)] subscribeNext:^(RACTuple *arguments) {
+        @strongify(self);
+        NSIndexPath *indexPath = arguments.second;
+        DetailViewController *detail = [DetailViewController new];
+        detail.transitioningDelegate = self;
+        detail.viewModel = self.viewModel.models[indexPath.row];
+        [self presentViewController:detail animated:YES completion:nil];
+    }];
+    self.collectionView.delegate = nil;
+    self.collectionView.delegate = self;
 }
 
 - (UICollectionView *)collectionView
@@ -56,7 +64,6 @@ static NSString *cellIdentifier = @"Identifier";
         layout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
         layout.columnCount = 2;
         self.collectionView = [[UICollectionView alloc] initWithFrame:self.view.frame collectionViewLayout:layout];
-        self.collectionView.delegate = self;
         self.collectionView.dataSource = self;
         self.collectionView.backgroundColor = [UIColor whiteColor];
         self.collectionView.alwaysBounceVertical = YES;
@@ -73,23 +80,9 @@ static NSString *cellIdentifier = @"Identifier";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     LoverlyCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-    LoverlyModel *model = self.viewModel.models[indexPath.row];
-    LoverlyCellViewModel *mode = [LoverlyCellViewModel new];
-    cell.viewModel = self.viewModel.models[indexPath.row];
-    mode.filename = model.filename;
-    mode.publisher_id = model.publisher_id;
-    [cell configureWithViewModel:mode];
-    if ([self.viewModel.models count] - indexPath.row < 5){
-        [self update];
-    }
+    [cell configureWithViewModel:self.viewModel.models[indexPath.row]];
     return cell;
 }
-
-- (void)update
-{
-
-}
-
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -101,6 +94,12 @@ static NSString *cellIdentifier = @"Identifier";
     return CGSizeMake(150, height);
 }
 
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
+                                                                  presentingController:(UIViewController *)presenting
+                                                                      sourceController:(UIViewController *)source
+{
+    return [PushAnimation new];
+}
 
 
 

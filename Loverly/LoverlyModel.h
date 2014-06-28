@@ -20,4 +20,8 @@
 @property(nonatomic,assign)NSInteger shared_count;
 @property(nonatomic,assign)NSInteger publisher_id;
 
+- (NSURL *)getImgURL;
+
+- (CGSize)getImgSize;
+
 @end

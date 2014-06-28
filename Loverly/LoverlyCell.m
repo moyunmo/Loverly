@@ -7,10 +7,10 @@
 //
 
 #import "LoverlyCell.h"
-#import "LoverlyCellViewModel.h"
 #import <UIImageView+WebCache.h>
 #import <RACEXTScope.h>
 #import <ReactiveCocoa.h>
+#import "LoverlyModel.h"
 @interface LoverlyCell ()
 
 @property(nonatomic,strong)UIImageView *imgView;
@@ -37,9 +37,8 @@
     self.imgView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
 }
 
-- (void)configureWithViewModel:(LoverlyCellViewModel *)model
+- (void)configureWithViewModel:(LoverlyModel *)model
 {
-    self.viewModel = model;
     NSURL *imgUrl = [model getImgURL];
     [self.imgView setImageWithURL:imgUrl placeholderImage:[UIImage imageNamed:@"color.png"]];
 }

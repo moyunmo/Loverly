@@ -7,11 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-@class LoverlyCellViewModel;
+@class LoverlyModel;
 @interface LoverlyCell : UICollectionViewCell
 
-@property(nonatomic,strong)LoverlyCellViewModel *viewModel;
-
-- (void)configureWithViewModel:(LoverlyCellViewModel *)model;
+- (void)configureWithViewModel:(LoverlyModel *)model;
 
 @end

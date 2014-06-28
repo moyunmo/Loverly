@@ -23,5 +23,16 @@
              @"publisher_id":@"publisher_id"};
 }
 
+- (NSURL *)getImgURL
+{
+    NSString *baseUrl = @"http://images.lover.ly/";
+    NSString *imageUrl = [baseUrl stringByAppendingString:[NSString stringWithFormat:@"%d_%@",self.publisher_id,self.filename]];
+    return [NSURL URLWithString:imageUrl];
+}
+
+- (CGSize)getImgSize
+{
+    return CGSizeMake(320, 320*self.height/self.width);
+}
 
 @end

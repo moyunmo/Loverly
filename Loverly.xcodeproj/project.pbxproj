@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		329E12CF195EB59300217B3E /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 329E12CE195EB59300217B3E /* DetailViewController.m */; };
+		329E12D3195EC5F700217B3E /* PushAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 329E12D2195EC5F700217B3E /* PushAnimation.m */; };
 		32F3337D195BE8A700B77C86 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32F3337C195BE8A700B77C86 /* Foundation.framework */; };
 		32F3337F195BE8A700B77C86 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32F3337E195BE8A700B77C86 /* CoreGraphics.framework */; };
 		32F33381195BE8A700B77C86 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32F33380195BE8A700B77C86 /* UIKit.framework */; };
@@ -26,7 +28,6 @@
 		32F333B8195BEE8900B77C86 /* LoverlyViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 32F333B7195BEE8900B77C86 /* LoverlyViewModel.m */; };
 		32F333BB195BEF7600B77C86 /* LoverlyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32F333BA195BEF7600B77C86 /* LoverlyViewController.m */; };
 		32F333BE195BF68800B77C86 /* LoverlyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32F333BD195BF68800B77C86 /* LoverlyCell.m */; };
-		32F333C1195BF6CE00B77C86 /* LoverlyCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 32F333C0195BF6CE00B77C86 /* LoverlyCellViewModel.m */; };
 		32F333C6195BFF6B00B77C86 /* color.png in Resources */ = {isa = PBXBuildFile; fileRef = 32F333C5195BFF6B00B77C86 /* color.png */; };
 		A10BCC3D518B46488BC218ED /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AABBBB54209F46258B84952B /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -42,6 +43,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		329E12CD195EB59300217B3E /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		329E12CE195EB59300217B3E /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		329E12D1195EC5F700217B3E /* PushAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushAnimation.h; sourceTree = "<group>"; };
+		329E12D2195EC5F700217B3E /* PushAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushAnimation.m; sourceTree = "<group>"; };
 		32F33379195BE8A700B77C86 /* Loverly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Loverly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32F3337C195BE8A700B77C86 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		32F3337E195BE8A700B77C86 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -71,8 +76,6 @@
 		32F333BA195BEF7600B77C86 /* LoverlyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoverlyViewController.m; sourceTree = "<group>"; };
 		32F333BC195BF68800B77C86 /* LoverlyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoverlyCell.h; sourceTree = "<group>"; };
 		32F333BD195BF68800B77C86 /* LoverlyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoverlyCell.m; sourceTree = "<group>"; };
-		32F333BF195BF6CE00B77C86 /* LoverlyCellViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoverlyCellViewModel.h; sourceTree = "<group>"; };
-		32F333C0195BF6CE00B77C86 /* LoverlyCellViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoverlyCellViewModel.m; sourceTree = "<group>"; };
 		32F333C5195BFF6B00B77C86 /* color.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = color.png; sourceTree = "<group>"; };
 		AABBBB54209F46258B84952B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D40252DCA16642728ECFD226 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
@@ -103,6 +106,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		329E12D0195EC53200217B3E /* Animas */ = {
+			isa = PBXGroup;
+			children = (
+				329E12D1195EC5F700217B3E /* PushAnimation.h */,
+				329E12D2195EC5F700217B3E /* PushAnimation.m */,
+			);
+			name = Animas;
+			sourceTree = "<group>";
+		};
 		32F33370195BE8A700B77C86 = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +153,7 @@
 			children = (
 				32F3338B195BE8A800B77C86 /* FEAppDelegate.h */,
 				32F3338C195BE8A800B77C86 /* FEAppDelegate.m */,
+				329E12D0195EC53200217B3E /* Animas */,
 				32F333CA195C071D00B77C86 /* View */,
 				32F333CB195C072D00B77C86 /* ViewModel */,
 				32F3338E195BE8A800B77C86 /* Images.xcassets */,
@@ -186,6 +199,8 @@
 				32F333BA195BEF7600B77C86 /* LoverlyViewController.m */,
 				32F333BC195BF68800B77C86 /* LoverlyCell.h */,
 				32F333BD195BF68800B77C86 /* LoverlyCell.m */,
+				329E12CD195EB59300217B3E /* DetailViewController.h */,
+				329E12CE195EB59300217B3E /* DetailViewController.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -193,8 +208,6 @@
 		32F333CB195C072D00B77C86 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				32F333BF195BF6CE00B77C86 /* LoverlyCellViewModel.h */,
-				32F333C0195BF6CE00B77C86 /* LoverlyCellViewModel.m */,
 				32F333AD195BEAFE00B77C86 /* LoverlyObject.h */,
 				32F333AE195BEAFE00B77C86 /* LoverlyObject.m */,
 				32F333B0195BEB5800B77C86 /* LoverlyModel.h */,
@@ -345,9 +358,10 @@
 				32F333B8195BEE8900B77C86 /* LoverlyViewModel.m in Sources */,
 				32F333AF195BEAFE00B77C86 /* LoverlyObject.m in Sources */,
 				32F333B5195BEBB500B77C86 /* LoverlyAPIManage.m in Sources */,
-				32F333C1195BF6CE00B77C86 /* LoverlyCellViewModel.m in Sources */,
+				329E12CF195EB59300217B3E /* DetailViewController.m in Sources */,
 				32F333BE195BF68800B77C86 /* LoverlyCell.m in Sources */,
 				32F333BB195BEF7600B77C86 /* LoverlyViewController.m in Sources */,
+				329E12D3195EC5F700217B3E /* PushAnimation.m in Sources */,
 				32F333B2195BEB5800B77C86 /* LoverlyModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

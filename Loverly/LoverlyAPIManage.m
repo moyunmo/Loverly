@@ -25,11 +25,15 @@
 
 - (RACSignal *)requestWithParameters:(NSMutableDictionary *)parameters resultClass:(Class)resultClass
 {
-    return [[self rac_GET:kwaterFlowAPI parameters:parameters] map:^id(id value) {
+    return [[[self rac_GET:kwaterFlowAPI parameters:parameters] catch:^RACSignal *(NSError *error) {
+        NSLog(@"%@",error);
+        return nil;
+    }] map:^id(id value) {
         return [[((NSArray *)value[@"items"]).rac_sequence map:^id(id value) {
             return [MTLJSONAdapter modelOfClass:resultClass fromJSONDictionary:value error:nil];
         }] array];
     }];
+    
 }
 
 @end

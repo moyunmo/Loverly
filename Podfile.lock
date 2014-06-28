@@ -27,6 +27,7 @@ PODS:
   - Mantle (1.5):
     - Mantle/extobjc
   - Mantle/extobjc (1.5)
+  - pop (1.0.6)
   - ReactiveCocoa (2.3.1):
     - ReactiveCocoa/UI
   - ReactiveCocoa/Core (2.3.1):
@@ -46,6 +47,7 @@ DEPENDENCIES:
   - AFNetworking-RACExtensions (~> 0.1)
   - CHTCollectionViewWaterfallLayout (~> 0.4)
   - Mantle (~> 1.5)
+  - pop (~> 1.0.6)
   - ReactiveCocoa (~> 2.3)
   - ReactiveViewModel (~> 0.1)
   - SDWebImage (~> 3.6)
@@ -56,6 +58,7 @@ SPEC CHECKSUMS:
   AFNetworking-RACExtensions: 1d7fbc98d11e9e02ae26faed0c777c6e840464b5
   CHTCollectionViewWaterfallLayout: 184d3b6d5456b48e93ac97e93e606bd8b68aedcc
   Mantle: c67a7e45e14196ed42b2a7cbb98ff6a9920e6b92
+  pop: e518794da38942c05255eb64b36d894e70cb4f00
   ReactiveCocoa: dca75777b9d18990c8714a3a6f2149f29b4d1462
   ReactiveViewModel: 78387196df2e7535bb2776c41df15dbb17300f8a
   SDWebImage: c6989652c1cdf27cbdf3f56957e2030f825af5bc
